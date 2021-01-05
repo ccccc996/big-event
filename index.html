@@ -35,9 +35,10 @@
       <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
           <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-          <ul class="layui-nav layui-nav-tree" lay-filter="test">
+          <!-- lay-shrink="all"展开子菜单的时候收缩兄弟节点的子菜单，相当于排他思想 -->
+          <ul class="layui-nav layui-nav-tree" lay-filter="test" lay-shrink="all">
             <li class="layui-nav-item">
-              <a href=""><span class="iconfont icon-home"></span>首页</a>
+              <a href="/home/dashboard.html" target="fm"><span class="iconfont icon-home"></span>首页</a>
             </li>
             <li class="layui-nav-item">
               <a class="" href="javascript:;"><span class="iconfont icon-16"></span>文章管理</a>
@@ -73,7 +74,8 @@
 
       <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px">内容主体区域</div>
+        <!-- <div style="padding: 15px">内容主体区域</div> -->
+        <iframe src="/home/dashboard.html" name="fm" frameborder="0"></iframe>
       </div>
 
       <div class="layui-footer">
@@ -83,5 +85,8 @@
     </div>
 
     <script src="/assets/lib/layui/layui.all.js"></script>
+    <script src="/assets/lib/jquery.js"></script>
+    <script src="/assets/js/baseAPI.js"></script>
+    <script src="/assets/js/index.js"></script>
   </body>
 </html>
