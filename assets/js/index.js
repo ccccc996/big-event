@@ -1,5 +1,27 @@
 $(function () {
   getUserInfo()
+
+  // const layer = layui.layer
+
+  $('#btnLogout').on('click', function () {
+    console.log(222)
+    layui.layer.confirm(
+      '确定退出登录？',
+      {
+        icon: 3,
+        title: '提示'
+      },
+      function (index) {
+        console.log(111)
+        //do something
+        // 清除token值
+        localStorage.removeItem('token')
+        // 跳回登陆页面
+        location.href = '/login.html'
+        layui.layer.close(index)
+      }
+    )
+  })
 })
 
 const layer = layui.layer
