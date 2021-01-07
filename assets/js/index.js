@@ -38,6 +38,16 @@ function getUserInfo() {
       if (res.status !== 0) return layer.msg(res.message)
       console.log(res)
       renderAvatar(res.data)
+    },
+    // 最终执行函数 无论成功或者失败都会执行 complete 函数
+    complete: function (res) {
+      // console.log(res)
+      if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
+        // 清除 token 值
+        localStorage.removeItem('token')
+        // 跳转回登陆页面
+        location.href = '/login.html'
+      }
     }
   })
 }
