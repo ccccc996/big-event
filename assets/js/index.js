@@ -4,7 +4,7 @@ $(function () {
   // const layer = layui.layer
 
   $('#btnLogout').on('click', function () {
-    console.log(222)
+    // console.log(222)
     layui.layer.confirm(
       '确定退出登录？',
       {
@@ -12,7 +12,7 @@ $(function () {
         title: '提示'
       },
       function (index) {
-        console.log(111)
+        // console.log(111)
         //do something
         // 清除token值
         localStorage.removeItem('token')
@@ -31,16 +31,16 @@ function getUserInfo() {
   $.ajax({
     method: 'GET',
     url: '/my/userinfo',
-    headers: {
+    /* headers: {
       Authorization: localStorage.getItem('token') || ''
-    },
+    }, */
     success: function (res) {
       if (res.status !== 0) return layer.msg(res.message)
-      console.log(res)
+      // console.log(res)
       renderAvatar(res.data)
-    },
+    }
     // 最终执行函数 无论成功或者失败都会执行 complete 函数
-    complete: function (res) {
+    /*     complete: function (res) {
       // console.log(res)
       if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
         // 清除 token 值
@@ -48,7 +48,7 @@ function getUserInfo() {
         // 跳转回登陆页面
         location.href = '/login.html'
       }
-    }
+    } */
   })
 }
 
